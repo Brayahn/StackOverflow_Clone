@@ -1,6 +1,5 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-
 import js from "@eslint/js";
 
 import { FlatCompat } from "@eslint/eslintrc";
@@ -18,7 +17,7 @@ export default [
     "next/core-web-vitals",
     "next/typescript",
     "standard",
-    //"plugin:tailwindcss/recommended",
+    "plugin:tailwindcss/recommended",
     "prettier"
   ),
   {
