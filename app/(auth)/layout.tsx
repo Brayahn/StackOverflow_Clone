@@ -1,12 +1,7 @@
-import React from "react";
-const layout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div>
-      <h1 className="text-3xl">Root Header</h1>
+import React, { ReactNode } from "react";
 
-      {children}
-    </div>
-  );
+const AuthLayout = ({ children }: { children: ReactNode }) => {
+  return <main>{children}</main>;
 };
 
-export default layout;
+export default AuthLayout;
