@@ -1,3 +1,6 @@
+import { auth, signOut } from "@/auth";
+import { Button } from "@/components/ui/button";
+import ROUTES from "@/constants/routes";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -9,7 +12,9 @@ import {
 import { Link } from "lucide-react";
 import React from "react";
 
-const Home = () => {
+const Home = async () => {
+  const session = await auth();
+
   return (
     <>
       <h1 className="text-3xl text-light-500 font-space-grotesk">
@@ -28,6 +33,15 @@ const Home = () => {
           <DropdownMenuItem>Subscription</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+      <form
+        className="px-10 pt-[100px]"
+        action={async () => {
+          "use server";
+          await signOut({ redirectTo: ROUTES.SIGN_IN });
+        }}
+      >
+        <Button type="submit">Log Out </Button>
+      </form>
     </>
   );
 };
