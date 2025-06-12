@@ -40,7 +40,8 @@ const Home = async () => {
           await signOut({ redirectTo: ROUTES.SIGN_IN });
         }}
       >
-        <Button type="submit">Log Out </Button>
+        {/*
+      <Button type="submit">Log Out </Button>*/}
       </form>
     </>
   );
