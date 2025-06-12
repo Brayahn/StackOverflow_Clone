@@ -3,13 +3,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   DefaultValues,
-  FieldValue,
   FieldValues,
   Path,
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-import { boolean, z, ZodType } from "zod";
+import { z, ZodType } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
