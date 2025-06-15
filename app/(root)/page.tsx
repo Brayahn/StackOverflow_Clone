@@ -1,51 +1,26 @@
-import { auth, signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItem,
-} from "@radix-ui/react-dropdown-menu";
-import { Link } from "lucide-react";
+import Link from "next/link";
+
 import React from "react";
 
 const Home = async () => {
-  const session = await auth();
-
   return (
     <>
-      <h1 className="text-3xl text-light-500 font-space-grotesk">
-        Welcome to Brainflow
-      </h1>
-      <h1 className="h1-bold font-inter text-3xl text-light-500">HomePage</h1>
-      <Link href={"/sign-in"} className="text-amber-300">
-        {" "}
-        Sign IN
-      </Link>
-      <DropdownMenu>
-        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <form
-        className="px-10 pt-[100px]"
-        action={async () => {
-          "use server";
-          await signOut({ redirectTo: ROUTES.SIGN_IN });
-        }}
-      >
-        {/*
-      <Button type="submit">Log Out </Button>*/}
-      </form>
+      <section className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center ">
+        <h1 className="h1-bold text-dark100_light900">All Questions </h1>
+        <Button className="primary-gradient min-h-[46px] px-4 py-3 !text-light-900">
+          <Link href={ROUTES.HOME}>Ask a Question</Link>
+        </Button>
+      </section>
+      <section className="mt-11">Local Search</section>
+      Home Filter
+      <div className="mt-10 flex w-full flex-col gap-6">
+        <p>Question Card 1</p>
+        <p>Question Card 2</p>
+        <p>Question Card 3</p>
+        <p>Question Card 4</p>
+      </div>
     </>
   );
 };
