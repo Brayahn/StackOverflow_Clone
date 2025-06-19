@@ -39,7 +39,7 @@ const LocalSearch = ({ route, imgSrc, placeholder, otherClasses }: Props) => {
           router.push(newUrl, { scroll: false });
         }
       }
-    }, 1000); // Debounce the search input for 1 second
+    }, 300); // Debounce the search input for 300 milliseconds
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchQuery, router, route, searchParams, pathname]); //dependencies array
